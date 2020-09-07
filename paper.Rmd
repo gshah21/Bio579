@@ -1,15 +1,15 @@
 ---
-title: "index"
+title: "paper.Rmd"
 author: "Gulalai Shah"
 date: "9/7/2020"
 output: html_document
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[lab2](lab2.html)
+Application written in R [@RCoreTeam] 
 
-Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].
-
+# REFERENCES
