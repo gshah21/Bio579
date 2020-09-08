@@ -16,7 +16,6 @@ y - x
 x * y
 y / x
 
-
 ###Exercise 2
 ```{r}
 x <- 2
@@ -39,6 +38,7 @@ sort(x)
 ```
 
 
-Application written in R [@RCoreTeam] 
 
-# REFERENCES
+#references 
+
+Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].

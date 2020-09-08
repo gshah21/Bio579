@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Evolutionary Genomics & Bioinformatics"
 author: "Gulalai Shah"
 date: "9/7/2020"
 output: html_document
@@ -9,7 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-[lab2](lab2.html)
+![](images/Shah_Gulalai.jpg)
 
-Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].
+[Lab2](lab2.html)
+
+[Lab1](lab1_Gulalai.html)
+
+
 
