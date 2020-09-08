@@ -9,6 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+
+![](Shah_Gulalai.JPG)
+
 ## Labs
 ## R Basics
 
