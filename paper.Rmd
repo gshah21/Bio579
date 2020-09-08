@@ -13,3 +13,4 @@ knitr::opts_chunk$set(echo = TRUE)
 Application written in R [@RCoreTeam] 
 
 # REFERENCES
+Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].
