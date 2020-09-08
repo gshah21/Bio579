@@ -5,7 +5,7 @@ date: "8/30/2020"
 output: html_document
 bibliography: references.bib
 ---
-
+Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].
 
 ###Exercise 1
 ```{r}
@@ -39,6 +39,7 @@ sort(x)
 
 
 
-#references 
 
-Application written in R [@RCoreTeam] using the Shiny framework [@Chang2015].
+
+
+# REFERENCES
