@@ -1,0 +1,147 @@
+---
+title: "Lab 3A"
+author: "Gulalai Shah"
+date: "9/13/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+```{r, eval=FALSE}
+download.file(url="https://ndownloader.figshare.com/files/2292169",
+              destfile = "portal_data_joined.csv")
+```
+
+```{r}
+surveys <- read.csv("portal_data_joined.csv")
+```
+```{r}
+head(surveys)
+str(surveys)
+```
+
+## Challenge 1
+Class: data frame
+
+Rows: 34786
+
+Columns: 13
+
+Species: 48 
+
+
+
+## Challenge 2
+```{r}
+surveys[200, ]
+```
+```{r}
+surveys[nrow(surveys), ]
+n_rows <- nrow(surveys) 
+```
+```{r}
+surveys_last <- surveys[n_rows, ]
+surveys_last
+```
+```{r}
+surveys_middle <- surveys[n_rows/2, ]
+surveys_middle
+```
+```{r}
+surveys_head <- surveys[-(7:n_rows), ]
+surveys_head
+```
+```{r}
+sex <- factor(c("male", "female", "female", "male"))
+levels(sex)
+nlevels(sex)
+```
+```{r}
+sex
+```
+```{r}
+sex <- factor(sex, levels = c("male", "female"))
+sex
+```
+```{r}
+year_fct <- factor(c(1990, 1983, 1977, 1998, 1990))
+as.numeric(year_fct)
+as.numeric(as.character(year_fct))
+as.numeric(levels(year_fct))[year_fct]
+```
+
+```{r}
+plot(as.factor(surveys$sex))
+```
+```{r}
+sex <- factor(surveys$sex)
+head(sex)
+```
+```{r}
+levels(sex)
+```
+```{r}
+levels(sex)[1] <- "undetermined"
+levels(sex)
+```
+
+```{r}
+head(sex)
+```
+## Challenge 3
+```{r}
+levels(sex)[2:3] <- c("female", "male")
+sex <- factor(sex, levels = c("female", "male", "undertermined"))
+plot(sex)
+```
+
+
+```{r}
+surveys <- read.csv("portal_data_joined.csv", stringsAsFactors = TRUE)
+str(surveys)
+surveys <- read.csv("portal_data_joined.csv", stringsAsFactors = FALSE)
+str(surveys)
+surveys$plot_type <- factor(surveys$plot_type)
+```
+
+## Challenge 4
+```{r}
+animal_data <- data.frame(
+            animal = c("dog", "cat", "sea cucumber", "sea urchin"), 
+            feel = c("furry", "fuzzy", "squishy", "spiny"), 
+            weight = c(45, 8, 1.1, 0.8)
+            )
+```
+
+```{r}
+country_climate <- data.frame(
+       country = c("Canada", "Panama", "South Africa", "Australia"),
+       climate = c("cold", "hot", "temperate", "hot/temperate"),
+       temperature = c(10, 30, 18, "15"),
+       northern_hemisphere = c(TRUE, TRUE, FALSE, "FALSE"),
+       has_kangaroo = c(FALSE, FALSE, FALSE, 1)
+       )
+str(country_climate)
+```
+country, climate, temperature, northern_hemisphere are factors
+has_kangaroo is numeric
+
+```
+
+```{r}
+country_climate <- data.frame(
+       country = c("Canada", "Panama", "South Africa", "Australia"),
+       climate = c("cold", "hot", "temperate", "hot/temperate"),
+       temperature = c(10, 30, 18, 15),
+       northern_hemisphere = c(TRUE, TRUE, FALSE, FALSE),
+       has_kangaroo = c(FALSE, FALSE, FALSE, TRUE)
+       )
+str(country_climate)
+```
+
+
