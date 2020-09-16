@@ -16,6 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Labs
 ## R Basics
 
+- [Lab 4:](Lab4.html)
+
 - [Lab 3B:](Lab3B.html)
 
 - [Lab 3A:](Lab3A.html)
