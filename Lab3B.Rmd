@@ -53,14 +53,14 @@ surveys_sml <- surveys %>%
 surveys_sml
 ```
 
-#Challenge 1
+## Challenge 1
 ```{r}
 surveys %>% 
   filter(year < 1995) %>% 
   select(year, sex, weight)
 ```
 
-#Mutate
+## Mutate
 ```{r}
 surveys %>% 
   mutate(weight_kg = weight / 1000)
@@ -81,7 +81,7 @@ surveys %>%
   mutate(weight_kg = weight / 1000) %>% 
   head()
 ```
-#Challenge 2
+## Challenge 2
 ```{r}
 surveys_hindfoot_cm <- surveys %>% 
   filter(!is.na(hindfoot_length)) %>% 
@@ -90,7 +90,7 @@ surveys_hindfoot_cm <- surveys %>%
   select(species_id, hindfoot_cm)
 ```
 
-#Split-apply-combine & summarize() function
+## Split-apply-combine & summarize() function
 ```{r}
 surveys %>% 
   group_by(sex) %>% 
@@ -149,7 +149,7 @@ surveys %>%
   count(sex, species) %>% 
   arrange(species, desc(n))
 ```
-#Challenge 3
+## Challenge 3
 ```{r}
 surveys %>% 
   count(plot_type)
@@ -173,7 +173,7 @@ surveys %>%
   select(year, genus, species, weight) %>% 
   arrange(year)
 ```
-#Reshaping with gather & spread
+## Reshaping with gather & spread
 ```{r}
 surveys_gw <- surveys %>% 
   filter(!is.na(weight)) %>% 
@@ -206,7 +206,7 @@ surveys_spread %>%
   gather(key = "genus", value = "mean_weight", Baiomys:Spermophilus) %>% 
   head()
 ```
-#Challenge 4
+## Challenge 4
 ```{r}
 surveys_spread_genera <- surveys %>% 
   group_by(plot_id, year) %>% 
@@ -231,7 +231,7 @@ surveys_long %>%
   summarize(mean_value = mean(value, na.rm=TRUE)) %>% 
   spread(measurement, mean_value)
 ```
-#Exporting Data
+## Exporting Data
 ```{r}
 surveys_complete <- surveys %>% 
   filter(!is.na(weight),

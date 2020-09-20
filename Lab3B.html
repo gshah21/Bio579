@@ -522,7 +522,8 @@ surveys_sml</code></pre>
 ## 15 RM         F          4
 ## 16 RM         M          4
 ## 17 RM         M          4</code></pre>
-<p>#Challenge 1</p>
+<div id="challenge-1" class="section level2">
+<h2>Challenge 1</h2>
 <pre class="r"><code>surveys %&gt;% 
   filter(year &lt; 1995) %&gt;% 
   select(year, sex, weight)</code></pre>
@@ -540,7 +541,9 @@ surveys_sml</code></pre>
 ##  9  1978 M        218
 ## 10  1978 &lt;NA&gt;      NA
 ## # … with 21,476 more rows</code></pre>
-<p>#Mutate</p>
+</div>
+<div id="mutate" class="section level2">
+<h2>Mutate</h2>
 <pre class="r"><code>surveys %&gt;% 
   mutate(weight_kg = weight / 1000)</code></pre>
 <pre><code>## # A tibble: 34,786 x 14
@@ -605,13 +608,17 @@ surveys_sml</code></pre>
 ## 6      1453    11     5  1978       2 NL         M                  NA    218
 ## # … with 5 more variables: genus &lt;chr&gt;, species &lt;chr&gt;, taxa &lt;chr&gt;,
 ## #   plot_type &lt;chr&gt;, weight_kg &lt;dbl&gt;</code></pre>
-<p>#Challenge 2</p>
+</div>
+<div id="challenge-2" class="section level2">
+<h2>Challenge 2</h2>
 <pre class="r"><code>surveys_hindfoot_cm &lt;- surveys %&gt;% 
   filter(!is.na(hindfoot_length)) %&gt;% 
   mutate(hindfoot_cm = hindfoot_length / 10) %&gt;% 
   filter(hindfoot_cm &lt; 3) %&gt;% 
   select(species_id, hindfoot_cm)</code></pre>
-<p>#Split-apply-combine &amp; summarize() function</p>
+</div>
+<div id="split-apply-combine-summarize-function" class="section level2">
+<h2>Split-apply-combine &amp; summarize() function</h2>
 <pre class="r"><code>surveys %&gt;% 
   group_by(sex) %&gt;% 
   summarize(mean_weight = mean(weight, na.rm = TRUE))</code></pre>
@@ -777,7 +784,9 @@ surveys_sml</code></pre>
 ##  9 &lt;NA&gt;  brunneicapillus    50
 ## 10 &lt;NA&gt;  chlorurus          39
 ## # … with 71 more rows</code></pre>
-<p>#Challenge 3</p>
+</div>
+<div id="challenge-3" class="section level2">
+<h2>Challenge 3</h2>
 <pre class="r"><code>surveys %&gt;% 
   count(plot_type)</code></pre>
 <pre><code>## # A tibble: 5 x 2
@@ -833,7 +842,9 @@ surveys_sml</code></pre>
 ##  9  1984 Neotoma   albigula       259
 ## 10  1985 Neotoma   albigula       225
 ## # … with 17 more rows</code></pre>
-<p>#Reshaping with gather &amp; spread</p>
+</div>
+<div id="reshaping-with-gather-spread" class="section level2">
+<h2>Reshaping with gather &amp; spread</h2>
 <pre class="r"><code>surveys_gw &lt;- surveys %&gt;% 
   filter(!is.na(weight)) %&gt;% 
   group_by(plot_id, genus) %&gt;% 
@@ -981,7 +992,9 @@ str(surveys_gather)</code></pre>
 ## 4       4 Baiomys       NA   
 ## 5       5 Baiomys        7.75
 ## 6       6 Baiomys       NA</code></pre>
-<p>#Challenge 4</p>
+</div>
+<div id="challenge-4" class="section level2">
+<h2>Challenge 4</h2>
 <pre class="r"><code>surveys_spread_genera &lt;- surveys %&gt;% 
   group_by(plot_id, year) %&gt;% 
   summarize(n_genera = n_distinct(genus)) %&gt;% 
@@ -1041,7 +1054,9 @@ str(surveys_gather)</code></pre>
 ##  9  1978 Short-term Krat Exclosure            36.9   63.8
 ## 10  1978 Spectab exclosure                    42.3   80.1
 ## # … with 120 more rows</code></pre>
-<p>#Exporting Data</p>
+</div>
+<div id="exporting-data" class="section level2">
+<h2>Exporting Data</h2>
 <pre class="r"><code>surveys_complete &lt;- surveys %&gt;% 
   filter(!is.na(weight),
          !is.na(hindfoot_length),
@@ -1052,6 +1067,7 @@ species_counts &lt;- surveys_complete %&gt;%
 <pre class="r"><code>surveys_complete &lt;- surveys_complete %&gt;% 
   filter(species_id %in% species_counts$species_id)</code></pre>
 <pre class="r"><code>write_csv(surveys_complete, path = &quot;surveys_complete.csv&quot;)</code></pre>
+</div>
 
 
 
