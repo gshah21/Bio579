@@ -9,3 +9,45 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library("tidyverse")
+```
+
+
+```{r}
+surveys <- read_csv("portal_data_joined.csv")
+```
+```{r}
+str(surveys)
+```
+
+```{r}
+View(surveys)
+```
+
+```{r}
+select(surveys, plot_id, species_id, weight)
+```
+
+```{r}
+select(surveys, -record_id, -species_id)
+```
+```{r}
+filter(surveys, year == 1995)
+```
+```{r}
+surveys2 <- filter(surveys, weight < 5)
+surveys_sml <- select(surveys2, species_id, sex, weight)
+```
+```{r}
+surveys_sml <- select(filter(surveys, weight < 5), species_id, sex, weight)
+```
+
+```{r}
+surveys %>% 
+  filter(weight < 5) %>% 
+  select(species_id, sex, weight)
+```
+
+
+

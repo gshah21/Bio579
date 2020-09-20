@@ -144,4 +144,47 @@ country_climate <- data.frame(
 str(country_climate)
 ```
 
+```{r}
+str(surveys)
+library("lubridate")
+```
+
+
+```{r}
+my_date <- ymd("2015-01-01")
+str(my_date)
+```
+
+```{r}
+my_date <- ymd(paste("2015", "1", sep = "-"))
+str(my_date)
+```
+
+#didn't include the following 2 lines in code because long table
+
+paste(surveys$year, surveys$month, surveys$day, sep = "-")
+ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+
+
+
+```{r}
+surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))
+```
+
+```{r}
+str(surveys)
+```
+
+```{r}
+summary(surveys$date)
+```
+
+```{r}
+missing_date <- surveys[is.na(surveys$date), c("year", "month", "day")]
+head(missing_date)
+```
+
+
+
+
 

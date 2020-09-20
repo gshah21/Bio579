@@ -1,0 +1,31 @@
+---
+title: "Lab4A.Rmd"
+author: "Gulalai Shah"
+date: "9/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+surveys_complete <- read.csv("surveys_complete.csv")
+```
+```{r}
+ggplot(data = surveys_complete)
+```
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes (x = weight, y = hindfoot_length))
+
+```
+
+```{r}
+ggplot(data = surveys_complete, mapping = aes (x = weight, y = hindfoot_length)) + geom_point()
+```
+
