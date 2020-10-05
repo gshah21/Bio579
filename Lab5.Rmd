@@ -186,7 +186,7 @@ time_series_long_joined_counts %>%
 ```
 ## Exercises
 ## 1
-# Done on my main GitHub page
+# Done on my main GitHub page under Lab4A
 
 ## 2
 ```{r}

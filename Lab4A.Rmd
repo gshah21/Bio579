@@ -39,6 +39,8 @@ surveys_plot +
 ```
 
 
+
+
 ```{r}
 ggplot(data = surveys_complete, aes(x = weight, y = hindfoot_length)) +
     geom_point()
@@ -57,6 +59,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) +
     geom_point(alpha = 0.1, aes(color = species_id))
 ```
+
 ## Challenge 1
 
 ```{r}
@@ -80,8 +83,22 @@ ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
     geom_violin()
 ```
 ```{r}
-
+ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) + 
+  scale_y_log10() +
+  geom_violin()
 ```
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = species_id, y = hindfoot_length)) +
+  geom_boxplot() +
+  geom_jitter()
+```
+```{r}
+ggplot(data = surveys_complete, mapping = aes(x = species_id, y = hindfoot_length)) +
+  geom_boxplot() +
+  geom_jitter(color = "blue")
+```
+
+
 
 # Plotting time series data
 ```{r}
@@ -154,6 +171,7 @@ ggplot(data = yearly_sex_counts,
      facet_wrap(vars(genus)) +
      theme_bw()
 ```
+
 ## Challenge 3
 
 ```{r}
@@ -218,6 +236,18 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
 ```
 
 ## Challenge 4
+
+```{r}
+grey_theme <- theme(axis.text.x = element_text(colour = "grey20", size = 12,
+              angle = 90, hjust = 0.5,
+              vjust = 0.5),
+                    axis.text.y = element_text(colour = "grey20", size = 12),
+              text = element_text(size = 16))
+
+ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
+  geom_line(alpha = 3.5, colour = "66CC99")
+```
+
 
 # Arranging and exporting plots
 ```{r}
