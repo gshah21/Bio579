@@ -30,7 +30,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [Lab 5:](Lab5.html)
 
-- [Lab 5x:](Lab5x.Rmd)
+- [Lab 5x:](Lab5x.html)
+
+- [Lab 6:](Lab6.html)
 
 
 
