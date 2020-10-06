@@ -36,7 +36,7 @@ Confirmed_State_9_13 <- Confirmed_State_9_13 %>%
 
 ```{r}
 Confirmed_State_3_13_9_13_joined <- full_join(Confirmed_State_3_13,
-    Confirmed_State_9_13, by = c("Province_State"))
+      Confirmed_State_9_13, by = c("Province_State"))
 ```
 
 ```{r}
@@ -66,6 +66,7 @@ Confirmed_State_3_13_9_13_joined_long <- Confirmed_State_3_13_9_13_joined %>%
               pivot_longer(-c(Province_State),
                             names_to = "Date", values_to = "Confirmed")
 ```
+
 ```{r}
 ggplot(Confirmed_State_3_13_9_13_joined_long, aes(x = Confirmed, y = Province_State)) +
   geom_point(aes(color = Date))
@@ -90,6 +91,7 @@ time_series_confirmed_long <- time_series_confirmed %>%
   pivot_longer(-c(Province_State, Country_Region, Lat, Long),
                names_to = "Date", values_to = "Confirmed")
 ```
+
 ```{r}
 head(time_series_confirmed_long)
 ```
@@ -118,6 +120,7 @@ time_series_deaths_long <- time_series_deaths_long %>%
   unite(Key, Province_State, Country_Region, date, sep = ".") %>% 
   select(Key, Deaths)
 ```
+
 ```{r}
 
 time_series_long_joined <- full_join(time_series_confirmed_long,
@@ -128,21 +131,25 @@ head(time_series_long_joined)
 ```{r}
 which(is.na(time_series_long_joined$Confirmed))
 ```
+
 ```{r}
 which(is.na(time_series_long_joined$Deaths))
 ```
+
 ```{r}
 library(lubridate)
 ```
 ```{r}
 time_series_long_joined$Date <- mdy(time_series_long_joined$Date)
 ```
+
 ```{r}
 time_series_long_joined_counts <- time_series_long_joined %>% 
   pivot_longer(-c(Province_State, Country_Region, Lat, Long, Date),
                names_to = "Report_Type", values_to = "Counts")
 head(time_series_long_joined_counts)
 ```
+
 ```{r}
 time_series_long_joined %>% 
   group_by(Country_Region,Date) %>% 
@@ -329,14 +336,29 @@ top_10_countries %>%
 ```
 # 9
 
-```{r, fig.width = 10}
-time_series_confirmed_long %>%
-group_by(Country_Region) %>%
-summarise(SumConfirmed = sum(confirmed))
-ggplot(x = Province_State, y = SumConfirmed) + 
-geom_point() + 
-geom_line()
+```{r}
+time_series_confirmed_US_long <- read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv")) %>% 
+select(-c("UID","iso2","iso3","code3","FIPS","Admin2")) %>% 
+  pivot_longer(-c("Province_State","Country_Region","Lat","Long_","Combined_Key"), names_to = "Dates", values_to = "Confirmed") %>% 
+  filter(Province_State != "Recovered" )
 ```
+
+```{r}
+time_series_confirmed_US_long$Dates <- mdy(time_series_confirmed_US_long$Dates)
+```
+
+```{r, fig.width = 10}
+i <- time_series_confirmed_US_long %>%
+group_by(Province_State, Dates) %>%
+summarise(SumConfirmed = sum(Confirmed)) %>% 
+ggplot(aes(x = Dates,  y = SumConfirmed,  color = Province_State)) + 
+geom_point() + 
+geom_line() + 
+facet_wrap(~Province_State, ncol = 5, scales = "free_y")
+i
+```
+
+
 
 # 10 
 
