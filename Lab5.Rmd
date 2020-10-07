@@ -347,7 +347,7 @@ select(-c("UID","iso2","iso3","code3","FIPS","Admin2")) %>%
 time_series_confirmed_US_long$Dates <- mdy(time_series_confirmed_US_long$Dates)
 ```
 
-```{r, fig.width = 10}
+```{r, fig.width = 15, fig.height= 15}
 i <- time_series_confirmed_US_long %>%
 group_by(Province_State, Dates) %>%
 summarise(SumConfirmed = sum(Confirmed)) %>% 
@@ -362,14 +362,7 @@ i
 
 # 10 
 
-```{r, fig.width = 10}
-top10_countries_deaths <- arrange(time_series_deaths_long, 
-desc(Deaths)) %>%
-slice(1:10) %>%
-ggplot(aes(x = Country_Region, y = Deaths)) + 
-geom_bar() + 
-facet_wrap(-Country_Region, ncol = 10, scales = "free_y") +
-theme_bw()
+
 ```
 
 
