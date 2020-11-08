@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ![](Shah_Gulalai.JPG)
 
 ## Labs
-## R Basics
+
 
 - [Lab 1:](lab1_Gulalai.html)
 
@@ -33,6 +33,23 @@ knitr::opts_chunk$set(echo = TRUE)
 - [Lab 5x:](Lab5x.html)
 
 - [Lab 6:](Lab6.html)
+
+- [Lab 6x:]()
+
+- [Lab 7:]()
+
+- [Lab 7x:]()
+
+- [Lab 8:]()
+
+- [Lab 8x:]()
+
+- [Lab 9:]()
+
+- [Lab 9x:]()
+
+- [Lab 10:]()
+
 
 
 
