@@ -85,12 +85,9 @@ dev.off()
 ```
 
 
-#RMarkdown loading images 
-![US COVID-19 Deaths] (time_series_example_plot.png)
 
+![US COVID-19 Deaths](time_series_example_plot.png)
 
-#US COVID-19 Deaths
-<img src= "time_series_example_plot.png" alt="US COVID-19 Deaths" style="width: 60 0px; />
 
 
 ## Interactive Graphs
