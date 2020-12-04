@@ -50,6 +50,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [Lab 10:](Lab-10.html)
 
+- [Lab 11:](Lab11.html)
+
+- [Lab 11x:](Lab11x.html)
+
+- [Lab 12:](Lab12.html)
+
+- [Lab 13:](Lab13.html)
 
 
 
