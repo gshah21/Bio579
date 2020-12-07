@@ -16,47 +16,39 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Labs
 
 
-- [Lab 1:](lab1_Gulalai.html)
+- Lab 1:  [Introduction to R and Reproducible Research](lab1_Gulalai.html)
 
-- [Lab 2:](lab2.html)
+- Lab 2:  [git, GitHub and Rstudio projectsFile](lab2.html)
 
-- [Lab 3A:](Lab3A.html)
+- Lab 3A:  [Starting with the Data](Lab3A.html)
 
-- [Lab 3B:](Lab3B.html)
+- Lab 3B:  [Manipulating Data](Lab3B.html)
 
-- [Lab 4:](Lab4.html)
+- Lab 4:  [Data wrangling and graphing COVID-19 reporting data (Part 1)](Lab4.html)
 
-- [Lab 4A:](Lab4A.html)
+- Lab 4A:  [Data Wrangling and Graphing COVID-19 Reporting Data, Part 2](Lab4A.html)
 
-- [Lab 5:](Lab5.html)
+- Lab 5:  [Data wrangling and graphing COVID-19 reporting data (Part 2)](Lab5.html)
 
-- [Lab 5x:](Lab5x.html)
+- Lab 5x:  [Interactive Graphs and Animations](Lab5x.html)
 
-- [Lab 6:](Lab6.html)
+- Lab 6:  [Mapping COVID-19 reporting data](Lab6.html)
 
-- [Lab 6x:](Lab6x.html)
+- Lab 7:  [Working on the command line](Lab-7.html)
 
-- [Lab 7:](Lab-7.html)
+- Lab 8:  [Sequence Alignment, Phylogenetic Analysis and Tree Visualization](Lab-8.html)
 
-- [Lab 7x:](Lab-7x.html)
+- Lab 9:  [Programming in R - Regular Expressions](Lab-9.html)
 
-- [Lab 8:](Lab-8.html)
+- Lab 9x:  [Programming in R - Control Structures and Functions](Lab-9x.html)
 
-- [Lab 8x:](Lab-8x.html)
+- Lab 10:  [Population genomics based on high throughput sequencing (HTS)](Lab-10.html)
 
-- [Lab 9:](Lab-9.html)
+- Lab 11: [Microbiome Analysis using dada2 and phyloseq](Lab11.html)
 
-- [Lab 9x:](Lab-9x.html)
+- Lab 12: [Network Analysis using Cytoscape and RCy3](Lab12.html)
 
-- [Lab 10:](Lab-10.html)
-
-- [Lab 11:](Lab11.html)
-
-- [Lab 11x:](Lab11x.html)
-
-- [Lab 12:](Lab12.html)
-
-- [Lab 13:](Lab13.html)
+- Lab 13: [Sprucing up your Rmarkdown and GitHub Page](Lab13.html)
 
 
 
