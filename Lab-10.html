@@ -427,6 +427,147 @@ vcf</code></pre>
 ## [24] &quot;INFO=ID=ReadPosRankSum&quot;              
 ## [25] &quot;INFO=ID=SOR&quot;                         
 ## [26] &quot;1 contig=&lt;IDs omitted from queryMETA&quot;</code></pre>
+<pre class="r"><code>queryMETA(vcf, element = &#39;DP&#39;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;FORMAT=ID=DP&quot;                                                                         
+## [2] &quot;Number=1&quot;                                                                             
+## [3] &quot;Type=Integer&quot;                                                                         
+## [4] &quot;Description=Approximate read depth (reads with MQ=255 or with bad mates are filtered)&quot;
+## 
+## [[2]]
+## [1] &quot;INFO=ID=DP&quot;                                                           
+## [2] &quot;Number=1&quot;                                                             
+## [3] &quot;Type=Integer&quot;                                                         
+## [4] &quot;Description=Approximate read depth; some reads may have been filtered&quot;</code></pre>
+<pre class="r"><code>queryMETA(vcf, element = &#39;FORMAT=&lt;ID=DP&#39;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;FORMAT=ID=DP&quot;                                                                         
+## [2] &quot;Number=1&quot;                                                                             
+## [3] &quot;Type=Integer&quot;                                                                         
+## [4] &quot;Description=Approximate read depth (reads with MQ=255 or with bad mates are filtered)&quot;</code></pre>
+</div>
+<div id="the-fix-region" class="section level1">
+<h1>The fix region</h1>
+<pre class="r"><code>head(getFIX(vcf))</code></pre>
+<pre><code>##      CHROM              POS   ID REF ALT QUAL     FILTER
+## [1,] &quot;Supercontig_1.50&quot; &quot;2&quot;   NA &quot;T&quot; &quot;A&quot; &quot;44.44&quot;  NA    
+## [2,] &quot;Supercontig_1.50&quot; &quot;246&quot; NA &quot;C&quot; &quot;G&quot; &quot;144.21&quot; NA    
+## [3,] &quot;Supercontig_1.50&quot; &quot;549&quot; NA &quot;A&quot; &quot;C&quot; &quot;68.49&quot;  NA    
+## [4,] &quot;Supercontig_1.50&quot; &quot;668&quot; NA &quot;G&quot; &quot;C&quot; &quot;108.07&quot; NA    
+## [5,] &quot;Supercontig_1.50&quot; &quot;765&quot; NA &quot;A&quot; &quot;C&quot; &quot;92.78&quot;  NA    
+## [6,] &quot;Supercontig_1.50&quot; &quot;780&quot; NA &quot;G&quot; &quot;T&quot; &quot;58.38&quot;  NA</code></pre>
+</div>
+<div id="the-gt-region" class="section level1">
+<h1>The gt region</h1>
+<pre class="r"><code>vcf@gt[1:6, 1:4]</code></pre>
+<pre><code>##      FORMAT           BL2009P4_us23               DDR7602                  
+## [1,] &quot;GT:AD:DP:GQ:PL&quot; &quot;0|0:62,0:62:99:0,190,2835&quot; &quot;0|0:12,0:12:39:0,39,585&quot;
+## [2,] &quot;GT:AD:DP:GQ:PL&quot; &quot;1|0:5,5:10:99:111,0,114&quot;   NA                       
+## [3,] &quot;GT:AD:DP:GQ:PL&quot; NA                          NA                       
+## [4,] &quot;GT:AD:DP:GQ:PL&quot; &quot;0|0:1,0:1:3:0,3,44&quot;        NA                       
+## [5,] &quot;GT:AD:DP:GQ:PL&quot; &quot;0|0:2,0:2:6:0,6,49&quot;        &quot;0|0:1,0:1:3:0,3,34&quot;     
+## [6,] &quot;GT:AD:DP:GQ:PL&quot; &quot;0|0:2,0:2:6:0,6,49&quot;        &quot;0|0:1,0:1:3:0,3,34&quot;     
+##      IN2009T1_us22              
+## [1,] &quot;0|0:37,0:37:99:0,114,1709&quot;
+## [2,] &quot;0|1:2,1:3:16:16,0,48&quot;     
+## [3,] &quot;0|0:2,0:2:6:0,6,51&quot;       
+## [4,] &quot;1|1:0,1:1:3:25,3,0&quot;       
+## [5,] &quot;0|0:1,0:1:3:0,3,31&quot;       
+## [6,] &quot;0|0:3,0:3:9:0,9,85&quot;</code></pre>
+</div>
+<div id="vcfr" class="section level1">
+<h1>vcfR</h1>
+<pre class="r"><code>vcf &lt;- read.vcfR(&quot;pinfsc50_filtered.vcf.gz&quot;)</code></pre>
+<pre><code>## Scanning file to determine attributes.
+## File attributes:
+##   meta lines: 29
+##   header_line: 30
+##   variant count: 2190
+##   column count: 27
+## 
+Meta line 29 read in.
+## All meta lines processed.
+## gt matrix initialized.
+## Character matrix gt created.
+##   Character matrix gt rows: 2190
+##   Character matrix gt cols: 27
+##   skip: 0
+##   nrows: 2190
+##   row_num: 0
+## 
+Processed variant 1000
+Processed variant 2000
+Processed variant: 2190
+## All variants processed</code></pre>
+<pre class="r"><code>head(vcf)</code></pre>
+<pre><code>## [1] &quot;***** Object of class &#39;vcfR&#39; *****&quot;
+## [1] &quot;***** Meta section *****&quot;
+## [1] &quot;##fileformat=VCFv4.1&quot;
+## [1] &quot;##source=\&quot;GATK haplotype Caller, phased with beagle4\&quot;&quot;
+## [1] &quot;##FILTER=&lt;ID=LowQual,Description=\&quot;Low quality\&quot;&gt;&quot;
+## [1] &quot;##FORMAT=&lt;ID=AD,Number=.,Type=Integer,Description=\&quot;Allelic depths fo [Truncated]&quot;
+## [1] &quot;##FORMAT=&lt;ID=DP,Number=1,Type=Integer,Description=\&quot;Approximate read  [Truncated]&quot;
+## [1] &quot;##FORMAT=&lt;ID=GQ,Number=1,Type=Integer,Description=\&quot;Genotype Quality\&quot;&gt;&quot;
+## [1] &quot;First 6 rows.&quot;
+## [1] 
+## [1] &quot;***** Fixed section *****&quot;
+##      CHROM              POS     ID REF ALT       QUAL      FILTER
+## [1,] &quot;Supercontig_1.50&quot; &quot;80058&quot; NA &quot;T&quot; &quot;G,TACTG&quot; &quot;3480.23&quot; NA    
+## [2,] &quot;Supercontig_1.50&quot; &quot;80063&quot; NA &quot;C&quot; &quot;T&quot;       &quot;3016.89&quot; NA    
+## [3,] &quot;Supercontig_1.50&quot; &quot;80067&quot; NA &quot;A&quot; &quot;C&quot;       &quot;3555.08&quot; NA    
+## [4,] &quot;Supercontig_1.50&quot; &quot;80073&quot; NA &quot;C&quot; &quot;A&quot;       &quot;104.72&quot;  NA    
+## [5,] &quot;Supercontig_1.50&quot; &quot;80074&quot; NA &quot;A&quot; &quot;G&quot;       &quot;2877.74&quot; NA    
+## [6,] &quot;Supercontig_1.50&quot; &quot;80089&quot; NA &quot;A&quot; &quot;ACG&quot;     &quot;2250.92&quot; NA    
+## [1] 
+## [1] &quot;***** Genotype section *****&quot;
+##      FORMAT           BL2009P4_us23                             
+## [1,] &quot;GT:AD:DP:GQ:PL&quot; &quot;1|0:25,3,0:28:45:45,0,1120,129,1134,1300&quot;
+## [2,] &quot;GT:AD:DP:GQ:PL&quot; &quot;1|0:29,3:32:30:30,0,1335&quot;                
+## [3,] &quot;GT:AD:DP:GQ:PL&quot; &quot;1|0:31,3:34:27:27,0,1372&quot;                
+## [4,] &quot;GT:AD:DP:GQ:PL&quot; &quot;0|0:30,0:30:99:0,102,1530&quot;               
+## [5,] &quot;GT:AD:DP:GQ:PL&quot; &quot;0|0:30,0:30:93:0,93,1395&quot;                
+## [6,] &quot;GT:AD:DP:GQ:PL&quot; &quot;0|0:33,0:33:99:0,99,1485&quot;                
+##      DDR7602                                  
+## [1,] &quot;1|0:19,7,0:26:99:237,0,777,300,804,1181&quot;
+## [2,] &quot;1|0:20,7:27:99:234,0,819&quot;               
+## [3,] &quot;1|0:19,6:25:99:189,0,864&quot;               
+## [4,] &quot;0|0:26,0:26:87:0,87,1305&quot;               
+## [5,] &quot;1|0:21,4:25:99:147,0,867&quot;               
+## [6,] &quot;1|0:20,2:22:18:18,0,918&quot;                
+##      IN2009T1_us22                              
+## [1,] &quot;0|1:29,6,0:35:99:162,0,1229,252,1252,1512&quot;
+## [2,] &quot;0|1:27,7:34:99:204,0,1232&quot;                
+## [3,] &quot;0|1:27,6:33:99:210,0,1155&quot;                
+## [4,] &quot;0|0:33,0:33:99:0,99,1485&quot;                 
+## [5,] &quot;0|1:27,6:33:99:171,0,1116&quot;                
+## [6,] &quot;0|1:27,7:34:99:213,0,1113&quot;                
+##      LBUS5                                    
+## [1,] &quot;0|1:19,7,0:26:99:237,0,777,300,804,1181&quot;
+## [2,] &quot;0|1:20,7:27:99:234,0,819&quot;               
+## [3,] &quot;0|1:19,6:25:99:189,0,864&quot;               
+## [4,] &quot;0|0:26,0:26:87:0,87,1305&quot;               
+## [5,] &quot;0|1:21,4:25:99:147,0,867&quot;               
+## [6,] &quot;0|1:20,2:22:18:18,0,918&quot;                
+##      NL07434                                     
+## [1,] &quot;0|1:45,19,0:64:99:643,0,1782,793,1866,2825&quot;
+## [2,] &quot;0|1:42,18:60:99:655,0,1748&quot;                
+## [3,] &quot;0|1:41,16:57:99:584,0,1737&quot;                
+## [4,] &quot;0|0:56,0:56:99:0,172,2565&quot;                 
+## [5,] &quot;0|1:39,16:55:99:629,0,1709&quot;                
+## [6,] &quot;0|1:34,12:46:99:393,0,1518&quot;                
+## [1] &quot;First 6 columns only.&quot;
+## [1] 
+## [1] &quot;Unique GT formats:&quot;
+## [1] &quot;GT:AD:DP:GQ:PL&quot;
+## [1]</code></pre>
+<pre class="r"><code>write.vcf(vcf, &quot;myVCFdata_filtered.vcf.gz&quot;)</code></pre>
+</div>
+<div id="exercises-part-1" class="section level1">
+<h1>Exercises Part 1</h1>
+<ol style="list-style-type: decimal">
+<li>How would we find more information about read.vcfR()? #?read.vcfR</li>
+</ol>
+<pre class="r"><code>?read.vcfR</code></pre>
 </div>
 
 

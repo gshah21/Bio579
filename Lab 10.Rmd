@@ -23,6 +23,40 @@ queryMETA(vcf)
 ```
 
 ```{r}
-
+queryMETA(vcf, element = 'DP')
 ```
+
+```{r}
+queryMETA(vcf, element = 'FORMAT=<ID=DP')
+```
+
+# The fix region
+```{r}
+head(getFIX(vcf))
+```
+# The gt region
+```{r}
+vcf@gt[1:6, 1:4]
+```
+# vcfR
+```{r}
+vcf <- read.vcfR("pinfsc50_filtered.vcf.gz")
+```
+```{r}
+head(vcf)
+```
+
+```{r}
+write.vcf(vcf, "myVCFdata_filtered.vcf.gz")
+```
+
+# Exercises Part 1
+1) How would we find more information about read.vcfR()?
+#?read.vcfR
+```{r}
+?read.vcfR
+```
+
+
+
 
