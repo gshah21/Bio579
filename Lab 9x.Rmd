@@ -1,30 +1,153 @@
 ---
 title: "Lab 9x"
 author: "Gulalai Shah"
-date: "11/8/2020"
+date: "10/28/2020"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+library(tidyverse)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+#Conditional statements with if-else
+```{r}
+## Generate a uniform random number
+x <- runif(1, 0, 10)  
+if(x > 3) {
+        y <- 10
+} else {
+        y <- 0
+}
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+# For Loops
+```{r}
+for(i in 1:8) {
+        print(i)
+}
+```
+```{r}
+x <- c("I", "like", "cheese", "pizza")
+for(i in 1:4) {
+        ## Print out each element of 'x'
+        print(x[i])  
+}
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+## Generate a sequence based on length of 'x'
+for(i in seq_along(x)) {   
+        print(x[i])
+}
+```
+
+```{r}
+for(letter in x) {
+        print(letter)
+}
+```
+```{r}
+for(i in 1:4) print(x[i])
+```
+
+# Nested for loops
+```{r}
+x <- matrix(1:4, 2, 3)
+for(i in seq_len(nrow(x))) {
+        for(j in seq_len(ncol(x))) {
+                print(x[i, j])
+        }   
+}
+```
+# While Loops
+```{r}
+count <- 0
+while(count < 9) {
+        print(count)
+        count <- count + 1
+}
+```
+
+```{r}
+#Example: Flipping a coin
+z <- 5
+set.seed(1)
+while(z >= 3 && z <= 10) {
+        coin <- rbinom(1, 1, 0.5)
+        
+        if(coin == 1) {  ## random walk
+                z <- z + 1
+        } else {
+                z <- z - 1
+        } 
+}
+print(z)
+```
+# Your First Function
+
+```{r}
+f <- function() {
+        ## This is an empty function
+}
+## Functions have their own class
+class(f)  
+```
+
+```{r}
+## Execute this function
+f()       
+```
+
+```{r}
+f <- function() {
+        cat("Get a room plant!\n It can make one happy :)")
+}
+f()
+```
+
+
+```{r}
+f <- function(num) {
+        for(i in seq_len(num)) {
+                cat("I like this lab so far!\n")
+        }
+}
+f(2)
+```
+
+```{r}
+f <- function(num) {
+        hello <- "I ate icecream for breakfast today :/\n"
+        for(i in seq_len(num)) {
+                cat(hello)
+        }
+        chars <- nchar(hello) * num
+        chars
+}
+meaningoflife <- f(2)
+```
+
+```{r}
+print(meaningoflife)
+```
+
+```{r}
+f <- function(num = 1) {
+        hello <- "I'm graduating!\n"
+        for(i in seq_len(num)) {
+                cat(hello)
+        }
+        chars <- nchar(hello) * num
+        chars
+}
+f()    ## Use default value for 'num'
+```
+
+```{r}
+f(3)   ## Use user-specified value
+```
+
+```{r}
+f(num = 2)
+```
+
