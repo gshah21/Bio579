@@ -1,0 +1,8 @@
+---
+title: "Lab 6 Report"
+author: "Gulalai Shah"
+date: "12/6/2020"
+output: html_document
+---
+
+ 
