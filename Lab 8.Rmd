@@ -7,7 +7,7 @@ output: html_document
 
 
 # NG Phylogeny
-Doing a phylogenetic analysis involves a number of steps. First, one must assemble a group of sequences to evaluate which in our case is data from a wide representation of life. Next, one has to align the sequences so that a distance can be calculate between the sequences. These distances correlate to the relatedness of the sequences and one must determine the relationships among the sequences. Finally, a phyologenetic analysis involves visualizing the relationships. All of the above steps except for the visualization have already been conducted. This lab walks through how to do the last step of visualization. Below is the tree that I had previously generated from the NGPhylogeny website.
+
 ```{r}
 
 ```
