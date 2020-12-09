@@ -3,11 +3,11 @@ title: "Lab 6"
 author: "Gulalai Shah"
 date: "10/4/2020"
 output: html_document
-bibliography: references.bib
+bibliography: covid_dashboard.bib
 ---
 
 
-#Building Maps
+# Building Maps
 ```{r}
 library(tidyverse)
 library(maps)
@@ -344,11 +344,10 @@ ggplotly(
 ```
 
 # Exercise 5
-```{r}
 
-```
+[Interactive and Static Graphs found here](Lab6x.html)
 
-Application written in R [@RCoreTeam] using the data collected from the Novel Coronavirus repository [Dong ,Du, and Gardner2020]
+
+Application written in R [@RCoreTeam] using the data collected from the Novel Coronavirus repository [@Dong2020]
 
 # REFERENCES
-Dong E, Du H, Gardner L. An interactive web-based dashboard to track COVID-19 in real time. Lancet Inf Dis. 20(5):533-534. doi: 10.1016/S1473-3099(20)30120-1.
