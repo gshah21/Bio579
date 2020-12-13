@@ -22,19 +22,21 @@ output:
 
 # Example 1
 
+STRING Network Up-regulated genes:
 ![](2upregulated genes.png)
 
-
+STRING Network Downregulated Genes:
 ![](3downregulated.png)
 
-
+STRING Enrichment Analysis Piecharts:
 ![](4 string.png)
 
 # Example 2
 
+Visualisation of Ovarian Cancer Network:
 ![](5ovarian.png)
 
-
+Visualisation of Ovarian Cancer Drivers:
 ![](6cancer.png)
 
 
