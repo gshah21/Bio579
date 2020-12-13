@@ -67,7 +67,7 @@ ggplot(daily_report, aes(x = Long, y = Lat, size = Confirmed)) +
   
   theme_void() + 
     guides( colour = guide_legend()) +
-    labs(title = "Anisa Dhana's lagout for COVID-19 Confirmed Cases in the US'") +
+    labs(title = "Anisa Dhana's lagout for COVID-19 Confirmed Cases in the US") +
     theme(
       legend.position = "bottom",
       text = element_text(color = "#22211d"),
@@ -78,7 +78,8 @@ ggplot(daily_report, aes(x = Long, y = Lat, size = Confirmed)) +
     coord_fixed(ratio=1.5)
 ```
 
-#Mapping Data to shapes
+
+
 ```{r echo= FALSE, message=FALSE, warning=FALSE}
 daily_report <- read_csv(url("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-02-2020.csv")) %>% 
   rename(Long = "Long_") %>% 
@@ -93,7 +94,7 @@ state_join <- left_join(us, daily_report, by = c("region" = "Province_State"))
 # plot state map
 ```
 
-#Using R Color Palettes
+
 
 ```{r echo= FALSE, message=FALSE, warning=FALSE}
 # plot state map
