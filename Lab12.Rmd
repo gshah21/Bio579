@@ -8,7 +8,9 @@ output: html_document
 
 
 # Basic Data Visualization
-![](basicdna.png)
+![](1basicdatavisuals.png)
+
+
 
 
 
@@ -16,32 +18,42 @@ output: html_document
 
 # Example 1
 
-![](Example1Part1.png)
+![](2upregulated genes.png)
 
 
-![](Example1Part2.png)
+![](3downregulated.png)
 
+
+![](4 string.png)
 
 # Example 2
 
-![](Example2.png)
+![](5ovarian.png)
+
+
+![](6cancer.png)
+
+
+
 # Connecting to RCys3
 ```{r, eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE))
  install.packages("BiocManager")
 BiocManager::install("RCy3")
 ```
-```{r}
+```{r, eval=FALSE}
 library(RCy3)
 cytoscapePing()
  cytoscapeVersionInfo ()
 ```
+
 #4 My first network
-```{r}
-c("node 0","node 1","node 2","node 3")
-           group=c("A","A","B","B") # categorical strings
-           score=as.integer(c(20,10,15,5)) # integers
-           stringsAsFactors=FALSE
+
+```{r, eval=FALSE}
+nodes <- data.frame(id=c("node 0","node 1","node 2","node 3"),
+           group=c("A","A","B","B"), # categorical strings
+           score=as.integer(c(20,10,15,5)), # integers
+           stringsAsFactors=FALSE)
 edges <- data.frame(source=c("node 0","node 0","node 0","node 2"),
            target=c("node 1","node 2","node 3","node 3"),
            interaction=c("inhibits","interacts","activates","interacts"),  # optional
@@ -49,15 +61,19 @@ edges <- data.frame(source=c("node 0","node 0","node 0","node 2"),
            stringsAsFactors=FALSE)
 ```
 
-```{r}
+
+![](7network.png)
+
+```{r, eval=FALSE}
 createNetworkFromDataFrames(nodes,edges, title="my first network", collection="DataFrame Example")
 ```
 
-```{r}
+
+```{r, eval=FALSE}
 setVisualStyle('Marquee')
 ```
-
-```{r}
+![](8style.png)
+```{r, eval=FALSE}
 style.name = "myStyle"
 defaults <- list(NODE_SHAPE="diamond",
                  NODE_SIZE=30,
@@ -73,13 +89,15 @@ setVisualStyle(style.name)
 
 ```
 
-```{r}
+![](9desining.png)
+
+```{r, eval=FALSE}
 lockNodeDimensions(FALSE, style.name)
 ```
 
 
 #5 Bioconductor graph example
-```{r}
+```{r, eval=FALSE}
 g = new ('graphNEL', edgemode='directed')
     g = graph::addNode ('A', g)
     g = graph::addNode ('D', g)
@@ -88,7 +106,10 @@ g = new ('graphNEL', edgemode='directed')
     createNetworkFromGraph (g, title='simple network', collection='GraphNEL Example')
 
 ```
-```{r}
+
+![](10bioconductor.png)
+
+```{r, eval=FALSE}
  df <- data.frame (moleculeType=c('kinase','TF','cytokine','cytokine'),
                      log2fc=c(1.8,3.0,-1.2,-2.5),
                      row.names = c('A','B','C','D'), # row.names = node names
@@ -96,55 +117,59 @@ g = new ('graphNEL', edgemode='directed')
     loadTableData (df)
 ```
 
-```{r}
+```{r, eval=FALSE}
 setNodeShapeDefault ('OCTAGON')
     setNodeColorDefault ('#AAFF88')
     setNodeSizeDefault  (60)
     setNodeFontSizeDefault (30)
 ```
-```{r}
+
+![](11changing.png)
+```{r, eval=FALSE}
 getNodeShapes ()   # diamond, ellipse, trapezoid, triangle, etc.
     column <- 'moleculeType'
     values <- c ('kinase',  'TF','cytokine')
     shapes <- c ('DIAMOND', 'TRIANGLE', 'RECTANGLE')
     setNodeShapeMapping (column, values, shapes)
 ```
-```{r}
+
+![](12adding.png)
+```{r, eval=FALSE}
 column <- 'log2fc'
     control.points <- c (-3.0, 0.0, 3.0)
     colors <-  c ('#5588DD', '#FFFFFF', '#DD8855')
     setNodeColorMapping (column, control.points, colors)
 ```
-
-```{r}
+![](13.png)
+```{r, eval=FALSE}
 control.points <- c (-2.0, 0.0, 2.0)
     colors <-  c ('#2255CC', '#5588DD', '#FFFFFF', '#DD8855','#CC5522')
     setNodeColorMapping (column, control.points, colors)
 ```
-
-```{r}
+![](14.png)
+```{r, eval=FALSE}
  control.points = c (-3.0, 2.0, 3.0)
     sizes     = c (20, 80, 90)
     setNodeSizeMapping (column, control.points, sizes)
 ```
 
-```{r}
+```{r, eval=FALSE}
     selectNodes ('C','name')
 ```
 
-```{r}
+```{r, eval=FALSE}
  getSelectedNodes ()
 ```
 
-```{r}
+```{r, eval=FALSE}
     selectFirstNeighbors ()
 ```
 
-```{r}
+```{r, eval=FALSE}
 saveSession('vignette_session') #.cys
 ```
 
-```{r}
+```{r, eval=FALSE}
 full.path=paste(getwd(),'vignette_image',sep='/')
     exportImage(full.path, 'PNG', zoom=200) #.png scaled by 200%
     exportImage(full.path, 'PDF') #.pdf
@@ -153,28 +178,28 @@ full.path=paste(getwd(),'vignette_image',sep='/')
 
 #6 Browse available functions, commands and arguments
 
-```{r}
+```{r, eval=FALSE}
 help(package=RCy3)
 ```
 
 
-```{r}
+```{r, eval=FALSE}
 cyrestAPI()  # CyREST API
 commandsAPI()  # Commands API
 ```
 
-```{r}
+```{r, eval=FALSE}
 commandsHelp("help")  
 ```
 
-```{r}
+```{r, eval=FALSE}
 commandsHelp("help network")  
 ```
 
-```{r}
+```{r, eval=FALSE}
 commandsHelp("help network select") 
 ```
-```{r}
+```{r, eval=FALSE}
 browseVignettes("RCy3")
 ```
 
