@@ -203,7 +203,7 @@ ggtree(tree) + geom_tiplab() +
 
 # Advanced tree annotation
 
-```{r, fig.width = 5, fig.height= 5 }
+```{r, fig.width = 15, fig.height= 15 }
 # Read the data
 tree <- read.beast("flu_tree_beast.tree")
 # supply a most recent sampling date so you get the dates
@@ -281,7 +281,7 @@ newtree <- read_tree("Output_Tree.nhx")
 newtree
 ```
 
-```{r, fig.width = 5, fig.height= 5}
+```{r, fig.width = 13, fig.height= 5}
 ggtree(newtree) +
   geom_text(aes(label = node), hjust = -.3) 
 ```
