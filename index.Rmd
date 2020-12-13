@@ -11,6 +11,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
+
+
+Hello Dr. Blanchard! I learned a lot by taking your class, I didn't have any prior coding experience and you made the process easily understandable. Thank you for always being available to help (and oftentimes staying longer than you had to). I hope you have a safe and enjoyable break :) 
+
+
+
+
 ![](Shah_Gulalai.JPG)
 
 ## Labs
